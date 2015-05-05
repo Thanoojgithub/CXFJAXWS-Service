@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	metadata-complete="false" version="3.1">
 	<display-name>CXFJAXWS-Service</display-name>
-	<description>SpringData MongoDB RESTful EHcache</description>
+	<description>JAX-WS service, using Apache CXF</description>
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>WEB-INF/beans.xml</param-value>
