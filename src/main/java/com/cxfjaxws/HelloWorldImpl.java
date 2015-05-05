@@ -1,20 +1,16 @@
 package com.cxfjaxws;
 
-import javax.jws.WebService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-/**
- * The @WebService annotation on the implementation class lets CXF know which
- * interface to use when creating WSDL. In this case its simply our HelloWorld
- * interface.
- * 
- * @author thanooj
- *
- */
-@WebService(endpointInterface = "com.cxfjaxws.HelloWorld")
 public class HelloWorldImpl implements HelloWorld {
 
-	public String sayHi(String text) {
-		System.out.println("sayHi called");
-		return "Hello " + text;
+	private final Logger logger = LoggerFactory.getLogger(HelloWorldImpl.class);
+
+	public String sayHi(String name) {
+		logger.info("##################");
+		logger.info("Hi, " + (name != null ? name : "Guest"));
+		logger.info("##################");
+		return "Hi, " + (name != null ? name : "Guest");
 	}
 }
