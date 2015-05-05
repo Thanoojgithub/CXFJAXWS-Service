@@ -1,2 +1,2 @@
 # CXFJAXWS-Service
-JAXWS web service, using Apache CXF
+JAX-WS web service, using Apache CXF
