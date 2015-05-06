@@ -7,10 +7,15 @@ public class HelloWorldImpl implements HelloWorld {
 
 	private final Logger logger = LoggerFactory.getLogger(HelloWorldImpl.class);
 
-	public String sayHi(String name) {
+	public EmployeeResponse getEmployee(EmployeeRequest parameters) {
+		ObjectFactory objectFactory = new ObjectFactory();
 		logger.info("##################");
-		logger.info("Hi, " + (name != null ? name : "Guest"));
+		logger.info("ID, " + parameters.getId());
 		logger.info("##################");
-		return "Hi, " + (name != null ? name : "Guest");
+		EmployeeResponse createEmployeeResponse = objectFactory.createEmployeeResponse();
+		createEmployeeResponse.setFirstname("Sriram");
+		createEmployeeResponse.setLastname("Ayodya");
+		createEmployeeResponse.setId(parameters.getId());
+		return createEmployeeResponse;
 	}
 }

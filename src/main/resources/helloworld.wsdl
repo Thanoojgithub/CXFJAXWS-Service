@@ -8,47 +8,51 @@
 			xmlns:tns="http://cxfjaxws.com/" elementFormDefault="unqualified"
 			targetNamespace="http://cxfjaxws.com/" version="1.0">
 
-			<xs:element name="sayHi" type="tns:sayHi" />
+			<xs:element name="employeeRequest" type="tns:employeeRequest" />
 
-			<xs:element name="sayHiResponse" type="tns:sayHiResponse" />
+			<xs:element name="employeeResponse" type="tns:employeeResponse" />
 
-			<xs:complexType name="sayHi">
+			<xs:complexType name="employeeRequest">
 				<xs:sequence>
-					<xs:element minOccurs="0" name="name" type="xs:string" />
+					<xs:element minOccurs="1" name="id" type="xs:integer" />
 				</xs:sequence>
 			</xs:complexType>
 
-			<xs:complexType name="sayHiResponse">
+			<xs:complexType name="employeeResponse">
 				<xs:sequence>
-					<xs:element minOccurs="0" name="return" type="xs:string" />
+					<xs:element minOccurs="1" name="id" type="xs:integer" />
+					<xs:element minOccurs="0" name="firstname" type="xs:string" />
+					<xs:element minOccurs="0" name="lastname" type="xs:string" />
 				</xs:sequence>
 			</xs:complexType>
 
 		</xs:schema>
 	</wsdl:types>
-	
-	<wsdl:message name="sayHiResponse">
-		<wsdl:part element="tns:sayHiResponse" name="parameters"/>
+
+	<wsdl:message name="employeeRequest">
+		<wsdl:part element="tns:employeeRequest" name="parameters" />
 	</wsdl:message>
-	<wsdl:message name="sayHi">
-		<wsdl:part element="tns:sayHi" name="parameters"/>
+	<wsdl:message name="employeeResponse">
+		<wsdl:part element="tns:employeeResponse" name="parameters" />
 	</wsdl:message>
-	
+
 	<wsdl:portType name="HelloWorld">
-		<wsdl:operation name="sayHi">
-			<wsdl:input message="tns:sayHi" name="sayHi"/>
-			<wsdl:output message="tns:sayHiResponse" name="sayHiResponse"/>
+		<wsdl:operation name="getEmployee">
+			<wsdl:input message="tns:employeeRequest" name="employeeRequest" />
+			<wsdl:output message="tns:employeeResponse" name="employeeResponse" />
 		</wsdl:operation>
 	</wsdl:portType>
-	
-	<wsdl:binding name="HelloWorldImplServiceSoapBinding" type="tns:HelloWorld">
-		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
-		<wsdl:operation name="sayHi">
+
+	<wsdl:binding name="HelloWorldImplServiceSoapBinding"
+		type="tns:HelloWorld">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="getEmployee">
 			<soap:operation soapAction="" style="document" />
-			<wsdl:input name="sayHi">
+			<wsdl:input name="employeeRequest">
 				<soap:body use="literal" />
 			</wsdl:input>
-			<wsdl:output name="sayHiResponse">
+			<wsdl:output name="employeeResponse">
 				<soap:body use="literal" />
 			</wsdl:output>
 		</wsdl:operation>
